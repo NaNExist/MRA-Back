@@ -45,7 +45,7 @@ async def main():
     # maa_inst.register_recognizer("MyRec", my_rec)
     # maa_inst.register_action("MyAct", my_act)
 
-    # await maa_inst.run_task("Combat")
+    await maa_inst.run_task("Combat")
 
 
 """ class MyRecognizer(CustomRecognizer):
