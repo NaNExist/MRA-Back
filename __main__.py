@@ -26,13 +26,7 @@ async def main():
         print("No ADB device found.")
         exit()
 
-    # for demo, we just use the first device
-    print(device_list[0])
-    device = device_list[0]
-    controller = AdbController(
-        adb_path=device.adb_path,
-        address=device.address,
-    )
+    controller = await ChooseAdbDevices(device_list)
     await controller.connect()
 
     maa_inst = Instance()
@@ -45,7 +39,7 @@ async def main():
     # maa_inst.register_recognizer("MyRec", my_rec)
     # maa_inst.register_action("MyAct", my_act)
 
-    await maa_inst.run_task("Combat")
+    # await maa_inst.run_task("Combat")
 
 
 """ class MyRecognizer(CustomRecognizer):
@@ -66,6 +60,30 @@ async def main():
 # my_rec = MyRecognizer()
 # my_act = MyAction()
 
+async def ChooseAdbDevices(devices_list: list) -> AdbController:
+    for i in range(len(devices_list)):
+        print(f"{i+1}. {devices_list[i]}")
+
+    device_index=-1
+
+    while(device_index not in range(1,len(devices_list)+1)):
+        while(True):
+            try:
+                device_index=int(input())
+            except:
+                print("输入有误，请重新输入")
+            else:
+                break
+
+        if device_index not in range(1,len(devices_list)+1):
+            print("输入范围有误，请重新输入")
+
+    print(f"成功选择第{device_index}个设备")
+    
+    return AdbController(
+        adb_path=devices_list[device_index-1].adb_path,
+        address=devices_list[device_index-1].address,
+    )
 
 if __name__ == "__main__":
     asyncio.run(main())
