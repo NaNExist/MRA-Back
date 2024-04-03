@@ -42,29 +42,29 @@ async def main():
         print("Failed to init MAA.")
         exit()
 
-    maa_inst.register_recognizer("MyRec", my_rec)
-    maa_inst.register_action("MyAct", my_act)
+    # maa_inst.register_recognizer("MyRec", my_rec)
+    # maa_inst.register_action("MyAct", my_act)
 
-    await maa_inst.run_task("Combat")
+    # await maa_inst.run_task("Combat")
 
 
-class MyRecognizer(CustomRecognizer):
+""" class MyRecognizer(CustomRecognizer):
     def analyze(
         self, context, image, task_name, custom_param
     ) -> Tuple[bool, RectType, str]:
-        return True, (0, 0, 100, 100), "Hello World!"
+        return True, (0, 0, 100, 100), "Hello World!" """
 
 
-class MyAction(CustomAction):
+""" class MyAction(CustomAction):
     def run(self, context, task_name, custom_param, box, rec_detail) -> bool:
         return True
 
     def stop(self) -> None:
-        pass
+        pass """
 
 
-my_rec = MyRecognizer()
-my_act = MyAction()
+# my_rec = MyRecognizer()
+# my_act = MyAction()
 
 
 if __name__ == "__main__":
