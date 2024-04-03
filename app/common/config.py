@@ -54,16 +54,16 @@ class Config(QConfig):
     checkUpdateAtStartUp = ConfigItem("Update", "CheckUpdateAtStartUp", True, BoolValidator())
 
 
-YEAR = 2023
-AUTHOR = "zhiyiYo"
-VERSION = __version__
-HELP_URL = "https://qfluentwidgets.com"
-REPO_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets"
-EXAMPLE_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets/tree/master/examples"
-FEEDBACK_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets/issues"
-RELEASE_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets/releases/latest"
-ZH_SUPPORT_URL = "https://qfluentwidgets.com/zh/price/"
-EN_SUPPORT_URL = "https://qfluentwidgets.com/price/"
+YEAR = 2024
+AUTHOR = "NaNExist"
+VERSION = "0.3.0"
+HELP_URL = "https://github.com/NaNExist/ResonanceAssistant"
+REPO_URL = "https://github.com/NaNExist/ResonanceAssistant"
+EXAMPLE_URL = "https://github.com/NaNExist/ResonanceAssistant"
+FEEDBACK_URL = "https://github.com/NaNExist/ResonanceAssistant/issues"
+RELEASE_URL = "https://github.com/NaNExist/ResonanceAssistant/releases/latest"
+ZH_SUPPORT_URL = "https://github.com/NaNExist/ResonanceAssistant"
+EN_SUPPORT_URL = "https://github.com/NaNExist/ResonanceAssistant"
 
 
 cfg = Config()

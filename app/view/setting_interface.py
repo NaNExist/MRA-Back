@@ -26,24 +26,6 @@ class SettingInterface(ScrollArea):
         # setting label
         self.settingLabel = QLabel(self.tr("Settings"), self)
 
-        # music folders
-        self.musicInThisPCGroup = SettingCardGroup(
-            self.tr("Music on this PC"), self.scrollWidget)
-        self.musicFolderCard = FolderListSettingCard(
-            cfg.musicFolders,
-            self.tr("Local music library"),
-            directory=QStandardPaths.writableLocation(
-                QStandardPaths.MusicLocation),
-            parent=self.musicInThisPCGroup
-        )
-        self.downloadFolderCard = PushSettingCard(
-            self.tr('Choose folder'),
-            FIF.DOWNLOAD,
-            self.tr("Download directory"),
-            cfg.get(cfg.downloadFolder),
-            self.musicInThisPCGroup
-        )
-
         # personalization
         self.personalGroup = SettingCardGroup(
             self.tr('Personalization'), self.scrollWidget)
@@ -122,14 +104,14 @@ class SettingInterface(ScrollArea):
             FIF.HELP,
             self.tr('Help'),
             self.tr(
-                'Discover new features and learn useful tips about PyQt-Fluent-Widgets'),
+                'Discover Helps about Resonance Assistant'),
             self.aboutGroup
         )
         self.feedbackCard = PrimaryPushSettingCard(
             self.tr('Provide feedback'),
             FIF.FEEDBACK,
             self.tr('Provide feedback'),
-            self.tr('Help us improve PyQt-Fluent-Widgets by providing feedback'),
+            self.tr('Help us improve Resonance Assistant by providing feedback'),
             self.aboutGroup
         )
         self.aboutCard = PrimaryPushSettingCard(
@@ -166,8 +148,6 @@ class SettingInterface(ScrollArea):
         self.settingLabel.move(36, 30)
 
         # add cards to group
-        self.musicInThisPCGroup.addSettingCard(self.musicFolderCard)
-        self.musicInThisPCGroup.addSettingCard(self.downloadFolderCard)
 
         self.personalGroup.addSettingCard(self.micaCard)
         self.personalGroup.addSettingCard(self.themeCard)
@@ -186,7 +166,6 @@ class SettingInterface(ScrollArea):
         # add setting card group to layout
         self.expandLayout.setSpacing(28)
         self.expandLayout.setContentsMargins(36, 10, 36, 0)
-        self.expandLayout.addWidget(self.musicInThisPCGroup)
         self.expandLayout.addWidget(self.personalGroup)
         self.expandLayout.addWidget(self.materialGroup)
         self.expandLayout.addWidget(self.updateSoftwareGroup)
@@ -214,10 +193,6 @@ class SettingInterface(ScrollArea):
     def __connectSignalToSlot(self):
         """ connect signal to slot """
         cfg.appRestartSig.connect(self.__showRestartTooltip)
-
-        # music in the pc
-        self.downloadFolderCard.clicked.connect(
-            self.__onDownloadFolderCardClicked)
 
         # personalization
         self.themeCard.optionChanged.connect(lambda ci: setTheme(cfg.get(ci), lazy=True))
