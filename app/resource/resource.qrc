@@ -128,6 +128,7 @@
         <file>images/Shoko2.jpg</file>
         <file>images/Shoko3.jpg</file>
         <file>images/Shoko4.jpg</file>
+        <file>images/logo1.png</file>
 
         <file>qss/dark/gallery_interface.qss</file>
         <file>qss/dark/home_interface.qss</file>

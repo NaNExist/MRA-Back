@@ -31,7 +31,7 @@ class BannerWidget(QWidget):
         self.vBoxLayout.addWidget(self.linkCardView, 1, Qt.AlignBottom)
         self.vBoxLayout.setAlignment(Qt.AlignLeft | Qt.AlignTop)
 
-        self.linkCardView.addCard(
+        """ self.linkCardView.addCard(
             ':/gallery/images/logo.png',
             self.tr('Getting started'),
             self.tr('An overview of app development options and samples.'),
@@ -59,7 +59,7 @@ class BannerWidget(QWidget):
             self.tr('Send feedback'),
             self.tr('Help us improve PyQt-Fluent-Widgets by providing feedback.'),
             FEEDBACK_URL
-        )
+        ) """
 
     def paintEvent(self, e):
         super().paintEvent(e)
