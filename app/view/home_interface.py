@@ -19,7 +19,7 @@ class BannerWidget(QWidget):
         self.setFixedHeight(336)
 
         self.vBoxLayout = QVBoxLayout(self)
-        self.galleryLabel = QLabel('Fluent Gallery', self)
+        self.galleryLabel = QLabel('Resonance Assistant', self)
         self.banner = QPixmap(':/gallery/images/header1.png')
         self.linkCardView = LinkCardView(self)
 
@@ -124,7 +124,7 @@ class HomeInterface(ScrollArea):
 
     def loadSamples(self):
         """ load samples """
-        # basic input samples
+        """ # basic input samples
         basicInputView = SampleCardView(
             self.tr("Basic input samples"), self.view)
         basicInputView.addSampleCard(
@@ -493,4 +493,4 @@ class HomeInterface(ScrollArea):
             routeKey="viewInterface",
             index=4
         )
-        self.vBoxLayout.addWidget(collectionView)
+        self.vBoxLayout.addWidget(collectionView) """
