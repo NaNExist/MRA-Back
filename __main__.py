@@ -9,10 +9,12 @@ from maa.toolkit import Toolkit
 from maa.custom_recognizer import CustomRecognizer
 from maa.custom_action import CustomAction
 
+import os
 import asyncio
+import time
 
 
-async def main():
+async def init() -> Instance:
     version = Library.open("bin")
     print(f"MaaFw Version: {version}")
 
@@ -36,35 +38,18 @@ async def main():
         print("Failed to init MAA.")
         exit()
 
-    # maa_inst.register_recognizer("MyRec", my_rec)
-    # maa_inst.register_action("MyAct", my_act)
-
+    return maa_inst
     # await maa_inst.run_task("Combat")
 
 
-""" class MyRecognizer(CustomRecognizer):
-    def analyze(
-        self, context, image, task_name, custom_param
-    ) -> Tuple[bool, RectType, str]:
-        return True, (0, 0, 100, 100), "Hello World!" """
-
-
-""" class MyAction(CustomAction):
-    def run(self, context, task_name, custom_param, box, rec_detail) -> bool:
-        return True
-
-    def stop(self) -> None:
-        pass """
-
-
-# my_rec = MyRecognizer()
-# my_act = MyAction()
 
 async def ChooseAdbDevices(devices_list: list) -> AdbController:
+    print("Adb 设备列表")
     for i in range(len(devices_list)):
         print(f"{i+1}. {devices_list[i]}")
 
     device_index=-1
+    print("请输入编号；")
 
     while(device_index not in range(1,len(devices_list)+1)):
         while(True):
@@ -84,6 +69,17 @@ async def ChooseAdbDevices(devices_list: list) -> AdbController:
         adb_path=devices_list[device_index-1].adb_path,
         address=devices_list[device_index-1].address,
     )
+
+async def main():
+
+    # 初始化资源
+    print("正在初始化...")
+    mra_inst=await init()
+    print("初始化完毕")
+    time.sleep(1)
+    os.system("cls")
+   
+    
 
 if __name__ == "__main__":
     asyncio.run(main())
