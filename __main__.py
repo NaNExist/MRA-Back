@@ -113,7 +113,7 @@ async def main():
     task_dict=await GetTaskList(interface)
     print("初始化完毕")
     # time.sleep(1)
-    # os.system("cls")
+    os.system("cls")
 
     # 选择任务
     task = await ChooseTask(task_dict)
