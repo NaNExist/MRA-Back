@@ -14,7 +14,6 @@ import asyncio
 import time
 import json
 
-
 async def ChooseAdbDevices(devices_list: list) -> AdbController:
     print("Adb 设备列表")
     for i in range(len(devices_list)):
@@ -109,15 +108,15 @@ async def main():
         print("Failed to init MAA.")
         exit()
     
-    interface= await LoadJson()
-    task_dict=await GetTaskList(interface)
+    interface = await LoadJson()
+    task_dict = await GetTaskList(interface)
     print("初始化完毕")
     # time.sleep(1)
     os.system("cls")
 
     # 选择任务
     task = await ChooseTask(task_dict)
-    await maa_inst.run_task("StartUp")
+    await maa_inst.run_task(task)
     
     
    
